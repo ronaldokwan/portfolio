@@ -535,8 +535,17 @@ button:focus {
 
 .card-img-top {
   padding: 20px !important;
-  opacity: 0.8 !important;
+  /* Start hidden and fade in on load so the image never pops or paints in. */
+  opacity: 0 !important;
   border-radius: 10px !important;
+  /* height:auto lets the width/height attributes reserve the right space,
+     preventing the card from jumping when the image arrives. */
+  height: auto !important;
+  transition: opacity 0.5s ease !important;
+}
+
+.card-img-top.is-loaded {
+  opacity: 0.8 !important;
 }
 
 .blog-img {
