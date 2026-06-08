@@ -1,4 +1,7 @@
 html {
+  /* Offset anchored/scroll-into-view jumps so content clears the fixed navbar. */
+  scroll-padding-top: 80px;
+
   --section-background-color: linear-gradient(to bottom left,
       rgba(17, 16, 16, 0.582),
       rgba(12, 8, 24, 0.904));
@@ -21,7 +24,8 @@ button:focus {
 /* --------- */
 /*  Preloader */
 /* --------- */
-#preloader {
+#preloader,
+#preloader-none {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,10 +36,19 @@ button:focus {
   background-image: url(./Assets/pre.svg);
   background-repeat: no-repeat;
   background-position: center;
+  /* Fade the overlay out, then drop it from the layout so it never blocks clicks. */
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+}
+
+#preloader {
+  opacity: 1;
+  visibility: visible;
 }
 
 #preloader-none {
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 #no-scroll {
@@ -763,4 +776,20 @@ button:focus {
 
 .fork-btn-inner::after {
   display: none !important;
+}
+
+/* --------- */
+/*  Reduced motion */
+/* --------- */
+/* Visitors who ask their OS to minimize motion get a calm, jank-free site:
+   near-instant transitions, no looping/parallax animation, instant scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

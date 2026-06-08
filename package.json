@@ -11,6 +11,8 @@
     "spell-check": "cspell **/*.js **/*.jsx **/*.ts **/*.tsx **/*.md --exclude **/node_modules/** --exclude **/dist/** --no-progress"
   },
   "dependencies": {
+    "@tsparticles/react": "^4.1.3",
+    "@tsparticles/slim": "^4.1.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.6.8",
@@ -23,7 +25,6 @@
     "react-parallax-tilt": "^1.7.222",
     "react-pdf": "^10.4.1",
     "react-router-dom": "^7.17.0",
-    "react-tsparticles": "^2.12.2",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
