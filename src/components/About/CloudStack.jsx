@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import {
+  SiCloudflare,
   SiFirebase,
   SiGithub,
   SiGooglecloud,
@@ -24,6 +25,9 @@ function CloudStack() {
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiSupabase />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiCloudflare />
       </Col>
     </Row>
   );

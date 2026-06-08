@@ -1,8 +1,8 @@
 import { Col, Row } from "react-bootstrap";
 import { CgCPlusPlus } from "react-icons/cg";
 import { DiCss3Full, DiHtml5, DiJavascript1, DiPython } from "react-icons/di";
-import { FaC } from "react-icons/fa6";
-import { SiTypescript } from "react-icons/si";
+import { FaC, FaJava } from "react-icons/fa6";
+import { SiPhp, SiTypescript } from "react-icons/si";
 
 function LanguageStack() {
   return (
@@ -14,6 +14,9 @@ function LanguageStack() {
         <SiTypescript />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
+        <SiPhp />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
         <DiPython />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
@@ -21,6 +24,9 @@ function LanguageStack() {
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <CgCPlusPlus />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <FaJava />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <DiHtml5 />

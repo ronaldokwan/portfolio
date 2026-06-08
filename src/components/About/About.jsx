@@ -1,22 +1,18 @@
-import "animate.css";
 import { Col, Container, Row } from "react-bootstrap";
-import { useInView } from "react-intersection-observer";
 import laptopImg from "../../Assets/about.png";
+import { fadeDown, fadeLeft, fadeRight, viewportOnce } from "../animations";
+import { MotionCol, Reveal } from "../motion";
 import Particle from "../Particle";
 import AboutCard from "./AboutCard";
+import Certifications from "./Certifications";
 import CloudStack from "./CloudStack";
 import DatabaseStack from "./DatabaseStack";
+import Experience from "./Experience";
 import FrameworkStack from "./FrameworkStack";
 import LanguageStack from "./LanguageStack";
 import ToolStack from "./ToolStack";
-function About() {
-  const { ref, inView } = useInView();
-  const { ref: ref1, inView: inView1 } = useInView();
-  const { ref: ref2, inView: inView2 } = useInView();
-  const { ref: ref3, inView: inView3 } = useInView();
-  const { ref: ref4, inView: inView4 } = useInView();
-  const { ref: ref5, inView: inView5 } = useInView();
 
+function About() {
   return (
     <Container fluid className="about-section" style={{ overflow: "hidden" }}>
       <Particle />
@@ -30,89 +26,74 @@ function About() {
               paddingBottom: "50px",
             }}
           >
-            <h1
-              style={{ fontSize: "2.1em", paddingBottom: "20px" }}
-              className={`${
-                inView ? "animate__animated animate__fadeInDown" : ""
-              }`}
-              ref={ref}
-            >
-              Know Who <strong className="purple">I&apos;M</strong>
-            </h1>
+            <Reveal variants={fadeDown}>
+              <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+                Know Who <strong className="purple">I&apos;M</strong>
+              </h1>
+            </Reveal>
             <AboutCard />
           </Col>
-          <Col
+          <MotionCol
             md={5}
             style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className={`about-img ${
-              inView ? "animate__animated animate__fadeInRight" : ""
-            }`}
-            ref={ref}
+            className="about-img"
+            variants={fadeRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
             <img src={laptopImg} alt="about" className="img-fluid" />
-          </Col>
+          </MotionCol>
         </Row>
 
-        <div
-          className={`${
-            inView1 ? "animate__animated animate__fadeInLeft" : ""
-          }`}
-          ref={ref1}
-        >
+        <Reveal variants={fadeLeft}>
+          <h1 className="project-heading">
+            Work <strong className="purple">Experience</strong>
+          </h1>
+          <Experience />
+        </Reveal>
+
+        <Reveal variants={fadeLeft}>
           <h1 className="project-heading">
             <strong className="purple">Programming Languages</strong>
           </h1>
-
           <LanguageStack />
-        </div>
+        </Reveal>
 
-        <div
-          className={`${
-            inView2 ? "animate__animated animate__fadeInRight" : ""
-          }`}
-          ref={ref2}
-        >
+        <Reveal variants={fadeRight}>
           <h1 className="project-heading">
             <strong className="purple">Databases</strong>
           </h1>
           <DatabaseStack />
-        </div>
+        </Reveal>
 
-        <div
-          className={`${
-            inView3 ? "animate__animated animate__fadeInLeft" : ""
-          }`}
-          ref={ref3}
-        >
+        <Reveal variants={fadeLeft}>
           <h1 className="project-heading">
             <strong className="purple">Libraries/Frameworks</strong>
           </h1>
           <FrameworkStack />
-        </div>
+        </Reveal>
 
-        <div
-          className={`${
-            inView4 ? "animate__animated animate__fadeInRight" : ""
-          }`}
-          ref={ref4}
-        >
+        <Reveal variants={fadeRight}>
           <h1 className="project-heading">
             <strong className="purple">Cloud Computing</strong>
           </h1>
           <CloudStack />
-        </div>
+        </Reveal>
 
-        <div
-          className={`${
-            inView5 ? "animate__animated animate__fadeInLeft" : ""
-          }`}
-          ref={ref5}
-        >
+        <Reveal variants={fadeLeft}>
           <h1 className="project-heading">
             <strong className="purple">Tools</strong>
           </h1>
           <ToolStack />
-        </div>
+        </Reveal>
+
+        <Reveal variants={fadeRight}>
+          <h1 className="project-heading">
+            <strong className="purple">Certifications</strong>
+          </h1>
+          <Certifications />
+        </Reveal>
       </Container>
     </Container>
   );

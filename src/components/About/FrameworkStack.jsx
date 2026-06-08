@@ -5,17 +5,23 @@ import {
   SiBootstrap,
   SiExpress,
   SiGraphql,
+  SiJquery,
+  SiLaravel,
   SiNextdotjs,
   SiRedux,
   SiSequelize,
   SiTailwindcss,
 } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 
 function FrameworkStack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
       <Col xs={4} md={2} className="tech-icons">
         <DiReact />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <TbBrandReactNative />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiRedux />
@@ -30,10 +36,16 @@ function FrameworkStack() {
         <SiBootstrap />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
+        <SiJquery />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
         <DiNodejs />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiExpress />
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiLaravel />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiSequelize />

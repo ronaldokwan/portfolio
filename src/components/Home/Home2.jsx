@@ -1,14 +1,18 @@
-import "animate.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
 import Tilt from "react-parallax-tilt";
 import myImg from "../../Assets/avatar.svg";
+import {
+  fadeDown,
+  fadeLeft,
+  fadeRight,
+  fadeUp,
+  viewportOnce,
+} from "../animations";
+import { MotionCol } from "../motion";
 
 function Home2() {
-  const { ref, inView } = useInView();
-
   return (
     <Container
       fluid
@@ -18,70 +22,74 @@ function Home2() {
     >
       <Container>
         <Row>
-          <h1
-            style={{ fontSize: "2.6em" }}
-            className={`home-about-description ${
-              inView ? "animate__animated animate__fadeInDown" : ""
-            }`}
-            ref={ref}
+          <MotionCol
+            xs={12}
+            className="home-about-description"
+            variants={fadeDown}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
-            LET ME <span className="purple">INTRODUCE</span> MYSELF
-          </h1>
+            <h1 style={{ fontSize: "2.6em" }}>
+              LET ME <span className="purple">INTRODUCE</span> MYSELF
+            </h1>
+          </MotionCol>
 
-          <Col
+          <MotionCol
             md={8}
-            className={`home-about-description ${
-              inView ? "animate__animated animate__fadeInLeft" : ""
-            }`}
-            ref={ref}
+            className="home-about-description"
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
             <p className="home-about-body">
               I am a passionate{" "}
               <i>
-                <b className="purple">Full Stack Web Developer</b>
+                <b className="purple">Full Stack Developer</b>
               </i>{" "}
-              with a desire to learn and grow in the field of computer science.
+              with a strong foundation in computer science and a passion for
+              creating efficient, user-friendly applications.
               <br />
               <br />
               Proficient in{" "}
               <i>
                 <b className="purple">
-                  JavaScript, TypeScript, Python, C, and C++
+                  JavaScript, TypeScript, PHP, Python, C, and C++
                 </b>
               </i>
-              , I thrive on crafting robust web applications using{" "}
-              <b className="purple">Node.js</b> and modern{" "}
-              <i>
-                <b className="purple">JavaScript libraries and frameworks</b>
-              </i>{" "}
-              such as{" "}
+              , I thrive on building{" "}
+              <b className="purple">RESTful APIs</b> and crafting robust web
+              applications using{" "}
               <i>
                 <b className="purple">
-                  React.js, Next.js, Express, and Sequelize
+                  React.js, Next.js, Node.js, Express, and Laravel
                 </b>
               </i>
-              .
+              , while integrating third-party services to bring ideas to life.
             </p>
-          </Col>
-          <Col
+          </MotionCol>
+          <MotionCol
             md={4}
-            className={`myAvatar ${
-              inView ? "animate__animated animate__fadeInRight" : ""
-            }`}
-            ref={ref}
+            className="myAvatar"
+            variants={fadeRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
             <Tilt>
               <img src={myImg} className="img-fluid" alt="avatar" />
             </Tilt>
-          </Col>
+          </MotionCol>
         </Row>
         <Row>
-          <Col
+          <MotionCol
             md={12}
-            className={`home-about-social ${
-              inView ? "animate__animated animate__fadeIn animate__slow" : ""
-            }`}
-            ref={ref}
+            className="home-about-social"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
           >
             <h1>FIND ME ON</h1>
             <p>
@@ -109,7 +117,7 @@ function Home2() {
                 </a>
               </li>
             </ul>
-          </Col>
+          </MotionCol>
         </Row>
       </Container>
     </Container>

@@ -1,17 +1,15 @@
-import "animate.css";
+import { motion } from "framer-motion";
 import { useRef } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
-import { useInView } from "react-intersection-observer";
 import homeLogo from "../../Assets/home-main.svg";
+import { fadeLeft, fadeRight, viewportOnce } from "../animations";
+import { MotionCol } from "../motion";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
 
 function Home() {
-  // user in view
-  const { ref, inView } = useInView();
-
   // scroll to home2
   const home2Ref = useRef(null);
   const scrollToHome2 = (event) => {
@@ -26,12 +24,13 @@ function Home() {
         <Particle />
         <Container className="home-content">
           <Row>
-            <Col
+            <MotionCol
               md={7}
-              className={`home-header ${
-                inView ? "animate__animated animate__fadeInLeft" : ""
-              }`}
-              ref={ref}
+              className="home-header"
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
             >
               <h1 style={{ paddingBottom: 15 }}>
                 Hi There!{" "}
@@ -45,14 +44,14 @@ function Home() {
               <div style={{ padding: 50, textAlign: "left" }}>
                 <Type />
               </div>
-            </Col>
-            <Col
+            </MotionCol>
+            <MotionCol
               md={5}
               style={{ paddingBottom: 20 }}
-              className={`${
-                inView ? "animate__animated animate__fadeInRight" : ""
-              }`}
-              ref={ref}
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
             >
               <img
                 src={homeLogo}
@@ -60,18 +59,23 @@ function Home() {
                 className="img-fluid"
                 style={{ maxHeight: "450px" }}
               />
-            </Col>
+            </MotionCol>
           </Row>
         </Container>
       </Container>
-      <div ref={ref}>
+      <div>
         <a href="#" onClick={scrollToHome2}>
-          <IoIosArrowDown
-            size={40}
-            className={`arrow-icon ${
-              inView ? "animate__animated animate__bounceInDown" : ""
-            }`}
-          />
+          <motion.span
+            style={{ display: "inline-block" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, y: [0, 10, 0] }}
+            transition={{
+              opacity: { duration: 0.6, delay: 0.4 },
+              y: { duration: 1.6, repeat: Infinity, ease: "easeInOut" },
+            }}
+          >
+            <IoIosArrowDown size={40} className="arrow-icon" />
+          </motion.span>
         </a>
       </div>
       <div ref={home2Ref}>

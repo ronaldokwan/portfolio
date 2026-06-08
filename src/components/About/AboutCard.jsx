@@ -1,19 +1,21 @@
-import "animate.css";
+import { motion } from "framer-motion";
 import Card from "react-bootstrap/Card";
 import { CgGym } from "react-icons/cg";
 import { FaBookOpen, FaGamepad, FaMusic } from "react-icons/fa";
 import { SiFedora } from "react-icons/si";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
-import { useInView } from "react-intersection-observer";
+import { fadeLeft, viewportOnce } from "../animations";
+
+const MotionCardBody = motion.create(Card.Body);
 
 function AboutCard() {
-  const { ref, inView } = useInView();
-
   return (
     <Card className="quote-card-view">
-      <Card.Body
-        className={`${inView ? "animate__animated animate__fadeInLeft" : ""}`}
-        ref={ref}
+      <MotionCardBody
+        variants={fadeLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOnce}
       >
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
@@ -59,7 +61,7 @@ function AboutCard() {
             </li>
           </ul>
         </blockquote>
-      </Card.Body>
+      </MotionCardBody>
     </Card>
   );
 }
