@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { CgWebsite } from "react-icons/cg";
 import { FaCertificate } from "react-icons/fa";
 import { staggerContainer, staggerItem, viewportOnce } from "../animations";
-import { MotionCol, MotionRow } from "../motion";
+import { MotionCol, MotionRow } from "../motionComponents";
 
 // TODO: replace the "#" placeholders with the real certificate URLs.
 const certifications = [

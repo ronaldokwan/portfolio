@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import { staggerContainer, staggerItem, viewportOnce } from "../animations";
-import { MotionCol, MotionRow } from "../motion";
+import { MotionCol, MotionRow } from "../motionComponents";
 
 const experiences = [
   {

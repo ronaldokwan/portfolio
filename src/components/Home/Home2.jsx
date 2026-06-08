@@ -10,7 +10,7 @@ import {
   fadeUp,
   viewportOnce,
 } from "../animations";
-import { MotionCol } from "../motion";
+import { MotionCol } from "../motionComponents";
 
 function Home2() {
   return (

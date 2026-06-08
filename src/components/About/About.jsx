@@ -1,7 +1,8 @@
 import { Col, Container, Row } from "react-bootstrap";
 import laptopImg from "../../Assets/about.png";
 import { fadeDown, fadeLeft, fadeRight, viewportOnce } from "../animations";
-import { MotionCol, Reveal } from "../motion";
+import { Reveal } from "../motion";
+import { MotionCol } from "../motionComponents";
 import Particle from "../Particle";
 import AboutCard from "./AboutCard";
 import Certifications from "./Certifications";

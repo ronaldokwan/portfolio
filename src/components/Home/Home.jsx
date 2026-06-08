@@ -4,7 +4,7 @@ import { Container, Row } from "react-bootstrap";
 import { IoIosArrowDown } from "react-icons/io";
 import homeLogo from "../../Assets/home-main.svg";
 import { fadeLeft, fadeRight, viewportOnce } from "../animations";
-import { MotionCol } from "../motion";
+import { MotionCol } from "../motionComponents";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";

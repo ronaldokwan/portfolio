@@ -9,7 +9,8 @@ import {
   staggerItem,
   viewportOnce,
 } from "../animations";
-import { MotionCol, MotionRow, Reveal } from "../motion";
+import { Reveal } from "../motion";
+import { MotionCol, MotionRow } from "../motionComponents";
 import Particle from "../Particle";
 import ProjectCard from "./ProjectCards";
 

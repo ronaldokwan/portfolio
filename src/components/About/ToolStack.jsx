@@ -1,4 +1,5 @@
 import { Col, Row } from "react-bootstrap";
+import { FaWindows } from "react-icons/fa";
 import {
   SiDbeaver,
   SiExpo,
@@ -6,22 +7,21 @@ import {
   SiJest,
   SiLinux,
   SiPostman,
-  SiVisualstudiocode,
   SiVite,
-  SiWindows11,
 } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 
 function ToolStack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
       <Col xs={4} md={2} className="tech-icons">
-        <SiWindows11 />
+        <FaWindows />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiLinux />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiVisualstudiocode />
+        <VscVscode />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiPostman />
